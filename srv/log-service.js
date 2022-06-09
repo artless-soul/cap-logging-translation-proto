@@ -25,20 +25,20 @@ module.exports = cds.service.impl(async function () {
       const bundle = new TextBundle('../assets/i18n/messages', locale);
 
         applogs.forEach(applog => {
-          applog.log_text = bundle.getText(applog.log_id);
-          const args = applog.log_param.split(',');
+          applog.message_text = bundle.getText(applog.message_id);         
 
           try {
-            const matches = applog.log_text.match(/\{[\w][\w]*\}/g) || []
+            const args = applog.message_param.split(',');
+            const matches = applog.message_text.match(/\{[\w][\w]*\}/g) || []
             for (const match of matches) {
               const arg = args[match.slice(1, -1)]
               const argtext = arg //may be arg should also be translated
-              applog.log_text = applog.log_text.replace(match, argtext || (arg != null ? arg : 'NULL'))
+              applog.message_text = applog.message_text.replace(match, argtext || (arg != null ? arg : 'NULL'))
           }
           } catch (e) {
             console.log(e);
           }
-          //applog.log_text = 'my test';
+          //applog.message_text = 'my test';
         });      
       });
 

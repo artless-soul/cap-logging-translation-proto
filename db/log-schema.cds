@@ -1,7 +1,8 @@
 using { cuid } from '@sap/cds/common';
 
 entity AppLog : cuid {
-    log_id: String;
-    log_param: String;
-    virtual log_text: String;
+    message_id: String;
+    message_type: String;
+    message_param: String;
+    virtual message_text: String;
 }
