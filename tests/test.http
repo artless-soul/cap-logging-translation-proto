@@ -1,0 +1,12 @@
+GET http://localhost:4004/application-log/testLogTranslation(log_id='001')
+
+###
+
+GET http://localhost:4004/application-log/AppLog
+
+
+###
+
+
+GET http://localhost:4004/application-log/AppLog
+Accept-Language: de-DE
